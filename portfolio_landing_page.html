@@ -3,24 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prem Kumar M | Cyberpunk Developer Portfolio</title>
+  <title>Prem Kumar M | Full-Stack & AI Engineer | Cyberpunk Portfolio</title>
+  <meta name="description" content="Prem Kumar M - Computer Science Engineer, Full-Stack Developer, AI & OpenCV Specialist. Explore projects, LeetCode stats, and verified credentials.">
+  
+  <!-- Tailwind CSS & FontAwesome -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: Outfit & JetBrains Mono for Futuristic Cyberpunk Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <style>
-    /* Custom Keyframe Animations */
+    * {
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Keyframe Animations */
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
+
+    @keyframes float-reverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(12px) rotate(-2deg); }
     }
 
     @keyframes neon-pulse {
       0%, 100% {
-        box-shadow: 0 0 25px rgba(236, 72, 153, 0.5), 0 0 50px rgba(139, 92, 246, 0.3);
+        box-shadow: 0 0 25px rgba(236, 72, 153, 0.4), 0 0 50px rgba(139, 92, 246, 0.3), 0 0 70px rgba(6, 182, 212, 0.2);
       }
       50% {
-        box-shadow: 0 0 45px rgba(236, 72, 153, 0.8), 0 0 80px rgba(139, 92, 246, 0.6);
+        box-shadow: 0 0 45px rgba(236, 72, 153, 0.8), 0 0 85px rgba(139, 92, 246, 0.6), 0 0 110px rgba(6, 182, 212, 0.4);
       }
+    }
+
+    @keyframes scanner-beam {
+      0% { top: -5%; opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { top: 105%; opacity: 0; }
+    }
+
+    @keyframes radar-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     @keyframes gradient-shift {
@@ -30,58 +63,53 @@
     }
 
     @keyframes shine {
-      0% { transform: translateX(-100%); }
+      0% { transform: translateX(-150%); }
       100% { transform: translateX(250%); }
     }
 
-    /* Directional Arrow Movement Animations */
     @keyframes arrow-move-right {
       0%, 100% { transform: translateX(0); }
       50% { transform: translateX(8px); }
     }
 
-    @keyframes arrow-move-left {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(-8px); }
-    }
-
     @keyframes arrow-move-down {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
+      50% { transform: translateY(8px); }
     }
 
     @keyframes arrow-move-up {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
     }
 
-    /* Diagonal Arrow Inward Movements Around Photo Frame */
-    @keyframes arrow-inward-tl {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(7px, 7px) scale(1.2); }
-    }
-
-    @keyframes arrow-inward-tr {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-7px, 7px) scale(1.2); }
-    }
-
-    @keyframes arrow-inward-bl {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(7px, -7px) scale(1.2); }
-    }
-
-    @keyframes arrow-inward-br {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-7px, -7px) scale(1.2); }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 0.3; }
+      100% { transform: scale(0.95); opacity: 0.8; }
     }
 
     .animate-float {
-      animation: float 4s ease-in-out infinite;
+      animation: float 4.5s ease-in-out infinite;
+    }
+
+    .animate-float-reverse {
+      animation: float-reverse 5s ease-in-out infinite;
     }
 
     .animate-neon-pulse {
       animation: neon-pulse 3.5s ease-in-out infinite;
+    }
+
+    .animate-scanner {
+      animation: scanner-beam 3s linear infinite;
+    }
+
+    .animate-radar {
+      animation: radar-spin 12s linear infinite;
+    }
+
+    .animate-pulse-ring {
+      animation: pulse-ring 4s ease-in-out infinite;
     }
 
     .animate-gradient-text {
@@ -93,32 +121,12 @@
       animation: arrow-move-right 1.4s ease-in-out infinite;
     }
 
-    .animate-arrow-left {
-      animation: arrow-move-left 1.4s ease-in-out infinite;
-    }
-
     .animate-arrow-down {
       animation: arrow-move-down 1.6s ease-in-out infinite;
     }
 
     .animate-arrow-up {
       animation: arrow-move-up 1.6s ease-in-out infinite;
-    }
-
-    .animate-arrow-tl {
-      animation: arrow-inward-tl 1.8s ease-in-out infinite;
-    }
-
-    .animate-arrow-tr {
-      animation: arrow-inward-tr 1.8s ease-in-out 0.4s infinite;
-    }
-
-    .animate-arrow-bl {
-      animation: arrow-inward-bl 1.8s ease-in-out 0.8s infinite;
-    }
-
-    .animate-arrow-br {
-      animation: arrow-inward-br 1.8s ease-in-out 1.2s infinite;
     }
 
     /* Scroll Reveal */
@@ -132,25 +140,38 @@
       transform: translateY(0);
     }
 
-    /* Cyberpunk Card Styling */
+    /* Cyber Card Glassmorphism */
     .cyber-card {
-      background: rgba(18, 13, 33, 0.75);
+      background: rgba(18, 13, 33, 0.78);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
 
     .cyber-card:hover {
       border-color: rgba(236, 72, 153, 0.5);
       transform: translateY(-6px);
-      box-shadow: 0 15px 35px -10px rgba(236, 72, 153, 0.3);
+      box-shadow: 0 20px 40px -15px rgba(236, 72, 153, 0.35);
+    }
+
+    /* 3D Perspective Tilt Container */
+    .tilt-wrapper {
+      perspective: 1000px;
+    }
+
+    .tilt-card {
+      transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
     }
 
     /* Neon Avatar Frame */
     .neon-avatar-border {
       padding: 4px;
       border-radius: 2.5rem;
-      background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6);
+      background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4, #10b981);
+      background-size: 300% 300%;
+      animation: gradient-shift 6s ease infinite;
     }
 
     /* Vertical Text */
@@ -169,16 +190,16 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 50%;
+      width: 60%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transform: translateX(-100%);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: translateX(-150%);
     }
     .shiny-btn:hover::after {
       animation: shine 1.2s ease-in-out infinite;
     }
 
-    /* Scrollbar */
+    /* Custom Cyber Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -186,208 +207,356 @@
       background: #090514;
     }
     ::-webkit-scrollbar-thumb {
-      background: #2a1b4e;
+      background: linear-gradient(180deg, #ec4899, #8b5cf6);
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #8b5cf6;
+      background: #06b6d4;
+    }
+
+    /* Typewriter Caret */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      vertical-align: -0.1em;
+      background-color: #ec4899;
+      animation: blink 0.9s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* LeetCode Difficulty Badges */
+    .lc-badge-easy {
+      background: rgba(0, 184, 163, 0.15);
+      border: 1px solid rgba(0, 184, 163, 0.4);
+      color: #00b8a3;
+    }
+    .lc-badge-medium {
+      background: rgba(255, 192, 30, 0.15);
+      border: 1px solid rgba(255, 192, 30, 0.4);
+      color: #ffc01e;
+    }
+    .lc-badge-hard {
+      background: rgba(255, 55, 95, 0.15);
+      border: 1px solid rgba(255, 55, 95, 0.4);
+      color: #ff375f;
     }
   </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 min-h-screen p-3 sm:p-6 font-sans antialiased text-slate-100 selection:bg-pink-500 selection:text-white relative overflow-x-hidden">
+<body class="bg-gradient-to-br from-[#060310] via-[#100926] to-[#0a051c] min-h-screen p-2 sm:p-5 lg:p-7 font-sans antialiased text-slate-100 selection:bg-pink-500 selection:text-white relative overflow-x-hidden">
 
   <!-- Top Scroll Progress Bar -->
-  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 z-50 transition-all duration-150" style="width: 0%;"></div>
+  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-pink-500 via-purple-500 via-cyan-400 to-emerald-400 z-50 transition-all duration-150" style="width: 0%;"></div>
 
   <!-- Main Cyberpunk Outer Container Frame -->
-  <div class="max-w-7xl mx-auto bg-[#0b0813] border border-white/10 rounded-[32px] sm:rounded-[40px] shadow-2xl shadow-purple-950/80 overflow-hidden relative">
+  <div class="max-w-7xl mx-auto bg-[#0b0718]/90 backdrop-blur-2xl border border-white/10 rounded-[28px] sm:rounded-[38px] shadow-2xl shadow-purple-950/90 overflow-hidden relative">
     
-    <!-- Ambient Background Glows Inside Frame -->
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-600/15 rounded-full blur-[150px] pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[150px] pointer-events-none"></div>
+    <!-- Ambient Futuristic Background Glows -->
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-pink-600/20 to-purple-600/10 rounded-full blur-[160px] pointer-events-none"></div>
+    <div class="absolute bottom-1/3 left-0 w-[550px] h-[550px] bg-gradient-to-tr from-cyan-600/15 to-indigo-600/15 rounded-full blur-[150px] pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[160px] pointer-events-none"></div>
 
     <!-- Header Navigation Bar -->
-    <header class="px-6 sm:px-12 py-6 flex justify-between items-center border-b border-white/5 relative z-20">
+    <header class="px-6 sm:px-10 py-5 flex justify-between items-center border-b border-white/5 relative z-30 bg-[#0b0718]/60 backdrop-blur-md">
       
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-3 text-white font-extrabold text-xl tracking-tight group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-pink-500/30 group-hover:scale-110 transition-transform">
-          <i class="fas fa-cubes text-lg"></i>
+      <a href="#home" class="flex items-center gap-3 text-white font-extrabold text-xl tracking-tight group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pink-500 via-purple-600 to-cyan-400 p-0.5 shadow-lg shadow-pink-500/30 group-hover:scale-110 transition-transform">
+          <div class="w-full h-full bg-[#0b0718] rounded-[10px] flex items-center justify-center text-pink-400 group-hover:text-white transition-colors">
+            <i class="fas fa-terminal text-sm"></i>
+          </div>
         </div>
-        <span>Prem Kumar<span class="text-pink-500">.dev</span></span>
+        <span>Prem Kumar<span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-cyan-400">.dev</span></span>
       </a>
 
-      <!-- Menu Items -->
-      <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-300">
+      <!-- Desktop Menu Items -->
+      <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium text-slate-300">
         <a href="#home" class="hover:text-pink-400 transition-colors">Home</a>
-        <a href="#about" class="hover:text-pink-400 transition-colors">About Us</a>
+        <a href="#about" class="hover:text-pink-400 transition-colors">About</a>
         <a href="#competencies" class="hover:text-pink-400 transition-colors">Competencies</a>
         <a href="#skills" class="hover:text-pink-400 transition-colors">Skills</a>
-        <a href="#projects" class="hover:text-pink-400 transition-colors">Projects</a>
+        <a href="#projects" class="hover:text-pink-400 transition-colors flex items-center gap-1">
+          <span>Projects</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-pink-500 animate-ping"></span>
+        </a>
+        <a href="#leetcode" class="hover:text-amber-400 transition-colors flex items-center gap-1">
+          <i class="fas fa-code text-xs text-amber-400"></i>
+          <span>LeetCode</span>
+        </a>
+        <a href="#certificates" class="hover:text-cyan-400 transition-colors flex items-center gap-1">
+          <i class="fas fa-certificate text-xs text-cyan-400"></i>
+          <span>Certificates</span>
+        </a>
         <a href="#experience" class="hover:text-pink-400 transition-colors">Experience</a>
       </nav>
 
-      <!-- Subscriber / Contact CTA Button with Bouncing Arrow -->
-      <a href="mailto:Prempremkumar50574@gmail.com" class="shiny-btn px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-full shadow-lg shadow-pink-500/30 hover:shadow-pink-500/60 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
-        <span>Subscriber / Hire Me</span>
-        <i class="fas fa-arrow-right animate-arrow-right text-xs"></i>
-      </a>
+      <!-- CTA & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:flex shiny-btn px-5 py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 rounded-full shadow-lg shadow-pink-500/25 hover:shadow-pink-500/50 hover:scale-105 active:scale-95 transition-all items-center gap-2">
+          <span>Hire Me</span>
+          <i class="fas fa-arrow-right animate-arrow-right text-xs"></i>
+        </a>
+
+        <button id="mobile-menu-btn" aria-label="Toggle Mobile Menu" class="lg:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white">
+          <i class="fas fa-bars text-base"></i>
+        </button>
+      </div>
     </header>
 
-    <!-- Main Body Container with Left Sidebar & Content -->
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden px-6 py-5 border-b border-white/10 bg-[#0e0920] space-y-3 text-sm font-medium text-slate-300">
+      <a href="#home" class="block py-2 hover:text-pink-400 border-b border-white/5">Home</a>
+      <a href="#about" class="block py-2 hover:text-pink-400 border-b border-white/5">About Me</a>
+      <a href="#competencies" class="block py-2 hover:text-pink-400 border-b border-white/5">Competencies</a>
+      <a href="#skills" class="block py-2 hover:text-pink-400 border-b border-white/5">Skills</a>
+      <a href="#projects" class="block py-2 text-pink-400 font-semibold border-b border-white/5 flex items-center justify-between">
+        <span>Featured Projects</span>
+        <i class="fas fa-arrow-right text-xs"></i>
+      </a>
+      <a href="#leetcode" class="block py-2 text-amber-400 font-semibold border-b border-white/5 flex items-center justify-between">
+        <span>LeetCode Stats</span>
+        <i class="fas fa-code text-xs"></i>
+      </a>
+      <a href="#certificates" class="block py-2 text-cyan-400 font-semibold border-b border-white/5 flex items-center justify-between">
+        <span>Certificates & Credentials</span>
+        <i class="fas fa-certificate text-xs"></i>
+      </a>
+      <a href="#experience" class="block py-2 hover:text-pink-400 border-b border-white/5">Experience</a>
+      <a href="#contact" class="block py-2 text-pink-400 font-bold">Contact & Hire</a>
+    </div>
+
+    <!-- Main Container with Left Sidebar & Canvas Content -->
     <div class="relative z-10 flex">
       
       <!-- Left Sidebar: Rotated Social Links -->
-      <aside class="hidden md:flex flex-col items-center justify-between py-12 px-6 border-r border-white/5 text-slate-400 text-xs font-semibold uppercase tracking-widest select-none">
+      <aside class="hidden md:flex flex-col items-center justify-between py-10 px-5 border-r border-white/5 text-slate-400 text-xs font-semibold uppercase tracking-widest select-none z-20 bg-[#0b0718]/40">
         
-        <!-- Toggle Icon Button -->
-        <div class="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-pink-400 mb-6">
-          <i class="fas fa-sliders-h"></i>
+        <!-- Interactive Mode Icon -->
+        <div class="w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-pink-400 mb-6 shadow-inner hover:scale-110 transition-transform">
+          <i class="fas fa-satellite-dish animate-pulse"></i>
         </div>
 
         <!-- Vertical Text with Animated Downward Arrow -->
         <div class="flex flex-col items-center gap-4 my-auto">
-          <span class="vertical-text text-slate-400 tracking-wider">Follow Me</span>
-          <i class="fas fa-long-arrow-alt-down text-pink-500 text-lg animate-arrow-down"></i>
+          <span class="vertical-text text-slate-400 tracking-widest text-[11px] font-mono">CONNECT • NET</span>
+          <i class="fas fa-long-arrow-alt-down text-pink-500 text-base animate-arrow-down"></i>
         </div>
 
-        <!-- Social Icons Column -->
-        <div class="flex flex-col space-y-5 text-base mt-8">
-          <a href="https://github.com/prem1382" target="_blank" class="hover:text-pink-400 hover:scale-125 transition-all" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/prem-kumar-9a1487378/" target="_blank" class="hover:text-pink-400 hover:scale-125 transition-all" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://leetcode.com/u/prem-20/" target="_blank" class="hover:text-pink-400 hover:scale-125 transition-all" title="LeetCode"><i class="fas fa-code"></i></a>
-          <a href="mailto:Prempremkumar50574@gmail.com" class="hover:text-pink-400 hover:scale-125 transition-all" title="Email"><i class="fas fa-envelope"></i></a>
+        <!-- Social Icons Column with Real Direct Links -->
+        <div class="flex flex-col space-y-4 text-base mt-8">
+          <a href="https://github.com/prem1382" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-500/50 hover:scale-110 transition-all shadow-md" title="GitHub Profile">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/prem-kumar-9a1487378/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 hover:scale-110 transition-all shadow-md" title="LinkedIn Profile">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://leetcode.com/u/prem-20/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500/50 hover:scale-110 transition-all shadow-md" title="LeetCode Profile">
+            <i class="fas fa-code"></i>
+          </a>
+          <a href="mailto:Prempremkumar50574@gmail.com" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-purple-400 hover:border-purple-500/50 hover:scale-110 transition-all shadow-md" title="Send Email">
+            <i class="fas fa-envelope"></i>
+          </a>
         </div>
       </aside>
 
       <!-- Main Center Canvas Content -->
-      <main class="flex-1 px-6 sm:px-12 py-10 lg:py-16">
+      <main class="flex-1 px-5 sm:px-10 lg:px-12 py-8 lg:py-14 relative overflow-hidden">
         
-        <!-- Hero Section -->
-        <section id="home" class="grid lg:grid-cols-12 gap-10 items-center mb-24 relative">
+        <!-- Hero Section with Interactive Particles & Big Cyber Animations -->
+        <section id="home" class="relative mb-28 pt-2">
           
-          <!-- Left Hero Text Content -->
-          <div class="lg:col-span-7 space-y-6">
+          <!-- Interactive Cyber Particle Canvas Background in Hero -->
+          <canvas id="hero-particles" class="absolute inset-0 w-full h-full pointer-events-auto opacity-70 z-0"></canvas>
+
+          <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
             
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-400 text-xs font-semibold">
-              <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
-              CS Engineer • Full-Stack & AI Developer
-            </div>
-
-            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
-              My Personal Portfolio <br/>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 animate-gradient-text">
-                Full-Stack Engineer
-              </span>
-            </h1>
-
-            <p class="text-slate-300 text-base sm:text-lg max-w-xl font-light leading-relaxed">
-              I am a CS Engineer focused on solving real-world problems by delivering scalable, high-performance web solutions and computer vision models that exceed expectations.
-            </p>
-
-            <!-- Action Buttons with Animated Moving Arrows -->
-            <div class="pt-4 flex flex-wrap gap-4 items-center">
-              <a href="#projects" class="shiny-btn px-8 py-3.5 bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white font-bold rounded-full shadow-lg shadow-pink-500/30 hover:shadow-pink-500/60 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 group">
-                <span>Watch Projects</span>
-                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:bg-white group-hover:text-pink-600 transition-all">
-                  <i class="fas fa-arrow-right animate-arrow-right"></i>
+            <!-- Left Hero Content -->
+            <div class="lg:col-span-7 space-y-6">
+              
+              <!-- Live Availability & Badge -->
+              <div class="flex flex-wrap items-center gap-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold font-mono">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>SYSTEM: ONLINE • READY FOR HIRE</span>
                 </div>
-              </a>
 
-              <a href="#contact" class="px-6 py-3.5 border border-white/10 rounded-full text-slate-300 font-semibold hover:border-pink-500/50 hover:text-white transition-all flex items-center gap-2">
-                <span>Contact Me</span>
-                <i class="fas fa-arrow-down text-xs animate-arrow-down text-pink-400"></i>
-              </a>
-            </div>
-
-          </div>
-
-          <!-- Right Hero Glowing Avatar Frame with Base64 Photo (Cyberpunk Dark Background) & Multi-Directional Inward Arrows -->
-          <div class="lg:col-span-5 flex justify-center relative">
-            
-            <!-- Animated Directional Arrows Orbiting & Moving Inward From Every Side -->
-            <!-- Top-Left Corner Arrow moving down-right -->
-            <div class="absolute -top-5 -left-5 z-30 bg-pink-500/25 border border-pink-400/50 p-3 rounded-full text-pink-300 text-base animate-arrow-tl shadow-lg backdrop-blur-md">
-              <i class="fas fa-arrow-down-right"></i>
-            </div>
-            
-            <!-- Top-Right Corner Arrow moving down-left -->
-            <div class="absolute -top-5 -right-5 z-30 bg-purple-500/25 border border-purple-400/50 p-3 rounded-full text-purple-300 text-base animate-arrow-tr shadow-lg backdrop-blur-md">
-              <i class="fas fa-arrow-down-left"></i>
-            </div>
-
-            <!-- Bottom-Left Corner Arrow moving up-right -->
-            <div class="absolute -bottom-5 -left-5 z-30 bg-cyan-500/25 border border-cyan-400/50 p-3 rounded-full text-cyan-300 text-base animate-arrow-bl shadow-lg backdrop-blur-md">
-              <i class="fas fa-arrow-up-right"></i>
-            </div>
-
-            <!-- Bottom-Right Corner Arrow moving up-left -->
-            <div class="absolute -bottom-5 -right-5 z-30 bg-emerald-500/25 border border-emerald-400/50 p-3 rounded-full text-emerald-300 text-base animate-arrow-br shadow-lg backdrop-blur-md">
-              <i class="fas fa-arrow-up-left"></i>
-            </div>
-
-            <!-- Floating Sparkle Accents -->
-            <span class="absolute -top-8 right-12 text-pink-400 text-xl animate-float">✦</span>
-            <span class="absolute bottom-8 -left-8 text-purple-400 text-2xl animate-float" style="animation-delay: 1.5s;">★</span>
-
-            <!-- Neon Avatar Frame -->
-            <div class="neon-avatar-border animate-neon-pulse relative group">
-              <div class="w-64 h-72 sm:w-80 sm:h-96 rounded-[2.2rem] overflow-hidden bg-slate-950 relative">
-                
-                <!-- Guaranteed Embedded Base64 Photo with Dark Cyberpunk Background -->
-                <img src="data:image/jpeg;base64,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" alt="Prem Kumar M Profile Photo" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
-                
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                
-                <div class="absolute bottom-4 left-4 right-4 text-center">
-                  <span class="px-4 py-1.5 bg-purple-950/90 text-pink-300 border border-pink-500/30 rounded-full text-xs font-bold tracking-wider uppercase backdrop-blur-md">
-                    Prem Kumar M
-                  </span>
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-xs">
+                  <i class="fas fa-graduation-cap text-[10px]"></i>
+                  <span>B.E. CSE (CGPA 8.07)</span>
                 </div>
               </div>
+
+              <!-- Main Hero Heading with Dynamic Multi-Role Typewriter -->
+              <div class="space-y-2">
+                <h2 class="text-sm uppercase tracking-[0.25em] text-pink-400 font-mono font-bold">Hello World, I'm Prem Kumar M</h2>
+                <h1 class="text-4xl sm:text-6xl xl:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
+                  Architecting <br/>
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 via-cyan-400 to-emerald-400 animate-gradient-text">
+                    <span id="typewriter-text">Full-Stack Apps</span><span class="typewriter-cursor"></span>
+                  </span>
+                </h1>
+              </div>
+
+              <!-- Engaging Tagline -->
+              <p class="text-slate-300 text-base sm:text-lg max-w-xl font-light leading-relaxed">
+                Computer Science Engineer passionate about building scalable, high-performance web systems, real-time <span class="text-pink-400 font-medium">OpenCV computer vision models</span>, and solving algorithmic challenges on <span class="text-amber-400 font-medium">LeetCode</span>.
+              </p>
+
+              <!-- Impact Quick Stats Strip -->
+              <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg">
+                <div class="cyber-card p-3 rounded-xl text-center border-pink-500/20">
+                  <div class="text-lg sm:text-xl font-black text-pink-400 font-mono">+35%</div>
+                  <div class="text-[10px] sm:text-xs text-slate-400">Processing Speed</div>
+                </div>
+                <div class="cyber-card p-3 rounded-xl text-center border-cyan-500/20">
+                  <div class="text-lg sm:text-xl font-black text-cyan-400 font-mono">100%</div>
+                  <div class="text-[10px] sm:text-xs text-slate-400">Direct Code Links</div>
+                </div>
+                <div class="cyber-card p-3 rounded-xl text-center border-amber-500/20">
+                  <div class="text-lg sm:text-xl font-black text-amber-400 font-mono">Verified</div>
+                  <div class="text-[10px] sm:text-xs text-slate-400">Certificates</div>
+                </div>
+              </div>
+
+              <!-- Action Buttons with Direct Navigation -->
+              <div class="pt-4 flex flex-wrap gap-4 items-center">
+                <a href="#projects" class="shiny-btn px-7 py-3.5 bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white font-bold rounded-full shadow-lg shadow-pink-500/30 hover:shadow-pink-500/60 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 group">
+                  <span>Explore Projects</span>
+                  <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:bg-white group-hover:text-pink-600 transition-all">
+                    <i class="fas fa-arrow-right animate-arrow-right"></i>
+                  </div>
+                </a>
+
+                <a href="#leetcode" class="px-6 py-3.5 border border-amber-500/30 bg-amber-500/10 rounded-full text-amber-300 font-semibold hover:bg-amber-500/20 hover:border-amber-400 hover:scale-105 transition-all flex items-center gap-2">
+                  <i class="fas fa-code text-sm"></i>
+                  <span>LeetCode Profile</span>
+                  <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+
+                <a href="#certificates" class="px-6 py-3.5 border border-cyan-500/30 bg-cyan-500/10 rounded-full text-cyan-300 font-semibold hover:bg-cyan-500/20 hover:border-cyan-400 hover:scale-105 transition-all flex items-center gap-2">
+                  <i class="fas fa-certificate text-sm"></i>
+                  <span>Certificates</span>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Right Hero 3D Tilt Avatar Frame with Holographic Scanner, Orbital Tech Badges & Particle Halo -->
+            <div class="lg:col-span-5 flex justify-center relative tilt-wrapper">
+              
+              <!-- Orbital Glowing Tech Badges Floating Around Frame -->
+              <!-- Badge 1: Python & OpenCV (Top Left) -->
+              <div class="absolute -top-6 -left-6 sm:-left-10 z-30 animate-float bg-[#130b29]/90 border border-pink-500/40 px-3.5 py-2 rounded-2xl shadow-xl shadow-pink-500/20 flex items-center gap-2 backdrop-blur-md">
+                <i class="fab fa-python text-pink-400 text-lg"></i>
+                <div class="text-left">
+                  <div class="text-[11px] font-bold text-white leading-tight">OpenCV AI</div>
+                  <div class="text-[9px] text-pink-300 font-mono">Biometrics</div>
+                </div>
+              </div>
+
+              <!-- Badge 2: LeetCode Master (Top Right) -->
+              <a href="https://leetcode.com/u/prem-20/" target="_blank" rel="noopener noreferrer" class="absolute -top-6 -right-6 sm:-right-8 z-30 animate-float-reverse bg-[#130b29]/90 border border-amber-500/40 px-3.5 py-2 rounded-2xl shadow-xl shadow-amber-500/20 flex items-center gap-2 backdrop-blur-md hover:scale-110 transition-transform group" title="Open LeetCode">
+                <i class="fas fa-code text-amber-400 text-lg group-hover:rotate-12 transition-transform"></i>
+                <div class="text-left">
+                  <div class="text-[11px] font-bold text-white leading-tight">LeetCode</div>
+                  <div class="text-[9px] text-amber-300 font-mono">prem-20 ↗</div>
+                </div>
+              </a>
+
+              <!-- Badge 3: React 19 & Full-Stack (Bottom Left) -->
+              <div class="absolute -bottom-6 -left-6 sm:-left-8 z-30 animate-float-reverse bg-[#130b29]/90 border border-cyan-500/40 px-3.5 py-2 rounded-2xl shadow-xl shadow-cyan-500/20 flex items-center gap-2 backdrop-blur-md">
+                <i class="fab fa-react text-cyan-400 text-lg animate-spin" style="animation-duration: 10s;"></i>
+                <div class="text-left">
+                  <div class="text-[11px] font-bold text-white leading-tight">React 19</div>
+                  <div class="text-[9px] text-cyan-300 font-mono">Full-Stack</div>
+                </div>
+              </div>
+
+              <!-- Badge 4: Java & SQL (Bottom Right) -->
+              <div class="absolute -bottom-6 -right-6 sm:-right-8 z-30 animate-float bg-[#130b29]/90 border border-purple-500/40 px-3.5 py-2 rounded-2xl shadow-xl shadow-purple-500/20 flex items-center gap-2 backdrop-blur-md">
+                <i class="fab fa-java text-purple-400 text-lg"></i>
+                <div class="text-left">
+                  <div class="text-[11px] font-bold text-white leading-tight">Java + SQL</div>
+                  <div class="text-[9px] text-purple-300 font-mono">Optimized</div>
+                </div>
+              </div>
+
+              <!-- Holographic Radar Sweep Circles Behind Photo -->
+              <div class="absolute inset-0 -m-6 rounded-full border border-pink-500/20 animate-pulse-ring pointer-events-none"></div>
+              <div class="absolute inset-0 -m-12 rounded-full border border-purple-500/15 animate-pulse-ring pointer-events-none" style="animation-delay: 1.5s;"></div>
+
+              <!-- 3D Tilt Card Frame -->
+              <div id="avatar-tilt-card" class="tilt-card neon-avatar-border animate-neon-pulse relative group cursor-pointer">
+                <div class="w-64 h-80 sm:w-80 sm:h-[420px] rounded-[2.3rem] overflow-hidden bg-slate-950 relative shadow-2xl">
+                  
+                  <!-- Portrait Image with Cyberpunk Background -->
+                  <img src="profile_photo_cyberpunk.jpg" onerror="this.onerror=null; this.src='profile_photo.jpeg';" alt="Prem Kumar M - Full Stack Developer" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+
+                  <!-- Cyber Holographic Scanner Laser Beam -->
+                  <div class="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 via-pink-400 to-transparent shadow-[0_0_15px_#ec4899] animate-scanner pointer-events-none"></div>
+
+                  <!-- Dark Cyber Gradient Vignette -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0b0718] via-transparent to-black/20 pointer-events-none"></div>
+                  
+                  <!-- Name Plate Tag -->
+                  <div class="absolute bottom-4 left-4 right-4 text-center">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0e0724]/90 border border-pink-500/40 rounded-full text-xs font-bold tracking-wider uppercase backdrop-blur-md shadow-lg">
+                      <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
+                      <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-cyan-300">Prem Kumar M</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
 
           </div>
 
-          <!-- Bottom Bouncing Scroll Indicator Arrow -->
-          <div class="col-span-12 flex justify-center mt-12">
-            <a href="#about" class="flex flex-col items-center text-slate-400 hover:text-pink-400 transition-colors text-xs font-medium gap-1 group">
-              <span>Scroll Down</span>
-              <i class="fas fa-chevron-down text-sm text-pink-500 animate-arrow-down"></i>
+          <!-- Bottom Scroll Indicator Arrow -->
+          <div class="flex justify-center mt-14">
+            <a href="#about" class="flex flex-col items-center text-slate-400 hover:text-pink-400 transition-colors text-xs font-medium gap-1.5 group">
+              <span class="tracking-widest uppercase text-[10px] font-mono text-pink-400/80">Scroll to Explore</span>
+              <div class="w-8 h-8 rounded-full border border-white/10 bg-white/5 flex items-center justify-center group-hover:border-pink-500/50 group-hover:bg-pink-500/10 transition-all">
+                <i class="fas fa-chevron-down text-xs text-pink-400 animate-arrow-down"></i>
+              </div>
             </a>
           </div>
 
         </section>
 
         <!-- Impact Metrics Banner -->
-        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24 reveal relative">
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-24 reveal relative">
           <div class="cyber-card p-6 rounded-2xl text-center relative group">
             <i class="fas fa-arrow-up text-xs text-pink-400 absolute top-3 right-3 animate-arrow-up"></i>
-            <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 mb-1">+35%</div>
+            <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 mb-1 font-mono">+35%</div>
             <p class="text-xs text-slate-400">Data Processing Efficiency</p>
           </div>
           <div class="cyber-card p-6 rounded-2xl text-center relative group">
             <i class="fas fa-arrow-down text-xs text-purple-400 absolute top-3 right-3 animate-arrow-down"></i>
-            <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-1">-18/wk</div>
-            <p class="text-xs text-slate-400">Errors Reduced</p>
+            <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-1 font-mono">-18/wk</div>
+            <p class="text-xs text-slate-400">Errors Reduced via Automation</p>
           </div>
           <div class="cyber-card p-6 rounded-2xl text-center relative group">
-            <i class="fas fa-arrow-right text-xs text-cyan-400 absolute top-3 right-3 animate-arrow-right"></i>
-            <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400 mb-1">8.07</div>
-            <p class="text-xs text-slate-400">Academic CGPA</p>
+            <i class="fas fa-graduation-cap text-xs text-cyan-400 absolute top-3 right-3"></i>
+            <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400 mb-1 font-mono">8.07</div>
+            <p class="text-xs text-slate-400">Academic CGPA (B.E. CSE)</p>
           </div>
           <div class="cyber-card p-6 rounded-2xl text-center relative group">
-            <i class="fas fa-arrow-up text-xs text-emerald-400 absolute top-3 right-3 animate-arrow-up"></i>
-            <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-pink-400 mb-1">4+</div>
-            <p class="text-xs text-slate-400">Certifications</p>
+            <i class="fas fa-certificate text-xs text-emerald-400 absolute top-3 right-3"></i>
+            <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-pink-400 mb-1 font-mono">4+</div>
+            <p class="text-xs text-slate-400">Verified Certifications</p>
           </div>
         </section>
 
-        <!-- About Me Section -->
+        <!-- 01: About Me Section -->
         <section id="about" class="mb-24 reveal">
           <div class="flex items-center gap-3 mb-8">
-            <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold">01</div>
-            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold font-mono">01</div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
               <span>About Me</span>
               <i class="fas fa-arrow-right text-sm text-pink-500 animate-arrow-right"></i>
             </h2>
@@ -396,37 +565,50 @@
 
           <div class="grid md:grid-cols-3 gap-8 text-slate-300 leading-relaxed font-light">
             <div class="md:col-span-2 space-y-4">
-              <p>
-                I am a Computer Science Engineering student specializing in full-stack web development and AI-integrated software solutions. Grounded in strong computer science fundamentals, I bring hands-on proficiency in Java, Python, JavaScript, and relational databases.
+              <p class="text-base sm:text-lg text-slate-200">
+                I am a passionate <strong class="text-white font-semibold">Computer Science Engineering student</strong> specializing in end-to-end full-stack web development, intelligent computer vision pipelines, and scalable database systems.
               </p>
               <p>
-                During my internship at <strong class="text-white">CAZ Brain Corporate Ltd</strong>, I developed enterprise web modules, optimized relational SQL queries, and engineered database-backed UI components that improved processing efficiency by <span class="text-pink-400 font-semibold">35%</span>.
+                During my internship at <strong class="text-pink-400 font-medium">CAZ Brain Corporate Ltd</strong> (Bangalore), I engineered enterprise web modules with Java, MySQL, and modern JavaScript, optimizing database queries to reduce transaction latency and boost throughput by <span class="text-pink-400 font-semibold">+35%</span>.
               </p>
               <p>
-                I thrive at the intersection of responsive frontend design, scalable backend architecture, and intelligent automation—building projects like <strong class="text-white">Hairlone</strong> (real-time face shape analyzer) and <strong class="text-white">Auto Guard</strong> (AI vehicle damage estimator).
+                I thrive at building impactful software solutions—ranging from biometric AI classifiers like <strong class="text-white">Hairlone 2.0</strong> to AI damage appraisal engines like <strong class="text-white">Auto Guard</strong>. I actively sharpen my data structure and algorithmic problem-solving skills on <strong class="text-amber-400">LeetCode</strong>.
               </p>
+              <div class="pt-2 flex flex-wrap gap-3">
+                <a href="https://www.linkedin.com/in/prem-kumar-9a1487378/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-blue-600/20 border border-blue-500/40 text-blue-300 rounded-full hover:bg-blue-600/30 transition-all">
+                  <i class="fab fa-linkedin"></i>
+                  <span>LinkedIn Profile</span>
+                  <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+                <a href="https://github.com/prem1382" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-purple-600/20 border border-purple-500/40 text-purple-300 rounded-full hover:bg-purple-600/30 transition-all">
+                  <i class="fab fa-github"></i>
+                  <span>GitHub Repositories</span>
+                  <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+              </div>
             </div>
 
             <div class="cyber-card p-6 rounded-2xl space-y-4">
               <h3 class="font-bold text-white border-b border-white/10 pb-2 flex items-center justify-between">
-                <span>Quick Overview</span>
-                <i class="fas fa-chevron-right text-xs text-pink-400 animate-arrow-right"></i>
+                <span>Fast Facts</span>
+                <i class="fas fa-id-badge text-pink-400"></i>
               </h3>
               <ul class="space-y-3 text-sm">
-                <li class="flex justify-between"><span class="text-slate-400">Degree:</span> <span class="text-slate-200">B.E. CSE</span></li>
-                <li class="flex justify-between"><span class="text-slate-400">College:</span> <span class="text-slate-200">V.S.B. Tech</span></li>
-                <li class="flex justify-between"><span class="text-slate-400">CGPA:</span> <span class="text-pink-400 font-bold">8.07</span></li>
-                <li class="flex justify-between"><span class="text-slate-400">Location:</span> <span class="text-slate-200">Coimbatore</span></li>
+                <li class="flex justify-between items-center"><span class="text-slate-400">Degree:</span> <span class="text-slate-200 font-mono">B.E. CSE</span></li>
+                <li class="flex justify-between items-center"><span class="text-slate-400">Institution:</span> <span class="text-slate-200">V.S.B. Tech</span></li>
+                <li class="flex justify-between items-center"><span class="text-slate-400">Academic CGPA:</span> <span class="text-pink-400 font-bold font-mono">8.07 / 10.0</span></li>
+                <li class="flex justify-between items-center"><span class="text-slate-400">Location:</span> <span class="text-slate-200">Coimbatore, India</span></li>
+                <li class="flex justify-between items-center"><span class="text-slate-400">Status:</span> <span class="text-emerald-400 font-semibold">Available for Roles</span></li>
               </ul>
             </div>
           </div>
         </section>
 
-        <!-- Technical Competencies Section -->
+        <!-- 02: Engineering Strengths Section -->
         <section id="competencies" class="mb-24 reveal">
           <div class="flex items-center gap-3 mb-8">
-            <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold">02</div>
-            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold font-mono">02</div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
               <span>Why Hire Me? — Engineering Strengths</span>
               <i class="fas fa-arrow-right text-sm text-pink-500 animate-arrow-right"></i>
             </h2>
@@ -435,45 +617,45 @@
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="cyber-card p-6 rounded-2xl group">
-              <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-4 text-lg group-hover:bg-pink-500 group-hover:text-white transition-all">
+              <div class="w-11 h-11 rounded-xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mb-4 text-xl group-hover:bg-pink-500 group-hover:text-white transition-all shadow-md">
                 <i class="fas fa-layer-group"></i>
               </div>
-              <h3 class="font-bold text-white mb-2 flex items-center justify-between">
+              <h3 class="font-bold text-white text-lg mb-2 flex items-center justify-between">
                 <span>Full-Stack Architecture</span>
                 <i class="fas fa-arrow-up-right text-xs text-pink-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
               </h3>
-              <p class="text-slate-400 text-sm font-light">End-to-end development from React 19 frontends to Java microservices and MySQL DB schemas.</p>
+              <p class="text-slate-400 text-sm font-light">Crafting responsive frontends with React 19 and Tailwind CSS paired with scalable Java and Node.js microservice backends.</p>
             </div>
 
             <div class="cyber-card p-6 rounded-2xl group">
-              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 text-lg group-hover:bg-purple-500 group-hover:text-white transition-all">
+              <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center mb-4 text-xl group-hover:bg-purple-500 group-hover:text-white transition-all shadow-md">
                 <i class="fas fa-brain"></i>
               </div>
-              <h3 class="font-bold text-white mb-2 flex items-center justify-between">
+              <h3 class="font-bold text-white text-lg mb-2 flex items-center justify-between">
                 <span>Applied AI & OpenCV</span>
                 <i class="fas fa-arrow-up-right text-xs text-purple-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
               </h3>
-              <p class="text-slate-400 text-sm font-light">Real-time computer vision classifiers, Gemini AI API integration, and AI conversational agents.</p>
+              <p class="text-slate-400 text-sm font-light">Engineering real-time biometric classifiers in Python OpenCV, Gemini multimodal vision inference, and conversational agents.</p>
             </div>
 
             <div class="cyber-card p-6 rounded-2xl group">
-              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 text-lg group-hover:bg-cyan-500 group-hover:text-white transition-all">
+              <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center mb-4 text-xl group-hover:bg-cyan-500 group-hover:text-white transition-all shadow-md">
                 <i class="fas fa-database"></i>
               </div>
-              <h3 class="font-bold text-white mb-2 flex items-center justify-between">
+              <h3 class="font-bold text-white text-lg mb-2 flex items-center justify-between">
                 <span>Database Performance</span>
                 <i class="fas fa-arrow-up-right text-xs text-cyan-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
               </h3>
-              <p class="text-slate-400 text-sm font-light">Relational database query optimization, indexing, and high-speed CRUD transaction handling.</p>
+              <p class="text-slate-400 text-sm font-light">Optimizing complex relational SQL queries, table indexing, ACID transactions, and robust data integrity models.</p>
             </div>
           </div>
         </section>
 
-        <!-- Technical Skills Section -->
+        <!-- 03: Technical Skills Section -->
         <section id="skills" class="mb-24 reveal">
           <div class="flex items-center gap-3 mb-8">
-            <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold">03</div>
-            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold font-mono">03</div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
               <span>Technical Skills Grid</span>
               <i class="fas fa-arrow-right text-sm text-pink-500 animate-arrow-right"></i>
             </h2>
@@ -481,125 +663,449 @@
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="cyber-card p-6 rounded-2xl">
-              <h3 class="font-bold text-white mb-3 flex items-center justify-between">
+            <!-- Programming Languages -->
+            <div class="cyber-card p-6 rounded-2xl border-pink-500/20">
+              <h3 class="font-bold text-white mb-4 flex items-center justify-between">
                 <span>Programming</span>
                 <i class="fas fa-code text-xs text-pink-400"></i>
               </h3>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-pink-300 border border-white/10 rounded-lg">Java</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-pink-300 border border-white/10 rounded-lg">Python</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-pink-300 border border-white/10 rounded-lg">JavaScript</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-pink-300 border border-white/10 rounded-lg">SQL</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-pink-300 border border-pink-500/30 rounded-lg font-mono">Java</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-pink-300 border border-pink-500/30 rounded-lg font-mono">Python</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-pink-300 border border-pink-500/30 rounded-lg font-mono">JavaScript</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-pink-300 border border-pink-500/30 rounded-lg font-mono">SQL</span>
               </div>
             </div>
 
-            <div class="cyber-card p-6 rounded-2xl">
-              <h3 class="font-bold text-white mb-3 flex items-center justify-between">
+            <!-- Web Development -->
+            <div class="cyber-card p-6 rounded-2xl border-purple-500/20">
+              <h3 class="font-bold text-white mb-4 flex items-center justify-between">
                 <span>Web Development</span>
                 <i class="fas fa-laptop-code text-xs text-purple-400"></i>
               </h3>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-purple-300 border border-white/10 rounded-lg">React.js</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-purple-300 border border-white/10 rounded-lg">Node.js</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-purple-300 border border-white/10 rounded-lg">REST APIs</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-purple-300 border border-white/10 rounded-lg">Tailwind</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-purple-300 border border-purple-500/30 rounded-lg font-mono">React.js</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-purple-300 border border-purple-500/30 rounded-lg font-mono">Node.js</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-purple-300 border border-purple-500/30 rounded-lg font-mono">REST APIs</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-purple-300 border border-purple-500/30 rounded-lg font-mono">Tailwind CSS</span>
               </div>
             </div>
 
-            <div class="cyber-card p-6 rounded-2xl">
-              <h3 class="font-bold text-white mb-3 flex items-center justify-between">
-                <span>ML & Tools</span>
+            <!-- ML, AI & Tools -->
+            <div class="cyber-card p-6 rounded-2xl border-cyan-500/20">
+              <h3 class="font-bold text-white mb-4 flex items-center justify-between">
+                <span>AI, CV & Tools</span>
                 <i class="fas fa-brain text-xs text-cyan-400"></i>
               </h3>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-cyan-300 border border-white/10 rounded-lg">OpenCV</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-cyan-300 border border-white/10 rounded-lg">Gemini AI</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-cyan-300 border border-white/10 rounded-lg">Git / GitHub</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-cyan-300 border border-cyan-500/30 rounded-lg font-mono">OpenCV</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-cyan-300 border border-cyan-500/30 rounded-lg font-mono">Gemini AI</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-cyan-300 border border-cyan-500/30 rounded-lg font-mono">Git & GitHub</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-cyan-300 border border-cyan-500/30 rounded-lg font-mono">VS Code</span>
               </div>
             </div>
 
-            <div class="cyber-card p-6 rounded-2xl">
-              <h3 class="font-bold text-white mb-3 flex items-center justify-between">
+            <!-- Databases & Cloud -->
+            <div class="cyber-card p-6 rounded-2xl border-emerald-500/20">
+              <h3 class="font-bold text-white mb-4 flex items-center justify-between">
                 <span>Databases</span>
                 <i class="fas fa-database text-xs text-emerald-400"></i>
               </h3>
               <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-emerald-300 border border-white/10 rounded-lg">MySQL</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-emerald-300 border border-white/10 rounded-lg">Relational SQL</span>
-                <span class="px-2.5 py-1 text-xs bg-white/5 text-emerald-300 border border-white/10 rounded-lg">Optimization</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-emerald-300 border border-emerald-500/30 rounded-lg font-mono">MySQL</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-emerald-300 border border-emerald-500/30 rounded-lg font-mono">Relational DB</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-emerald-300 border border-emerald-500/30 rounded-lg font-mono">CRUD Engines</span>
+                <span class="px-3 py-1.5 text-xs bg-white/5 text-emerald-300 border border-emerald-500/30 rounded-lg font-mono">Optimization</span>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Featured Projects Section -->
+        <!-- 04: Featured Projects Section with DIRECT PROJECT LINKS -->
         <section id="projects" class="mb-24 reveal">
-          <div class="flex items-center gap-3 mb-8">
-            <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold">04</div>
-            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-              <span>Featured Projects</span>
-              <i class="fas fa-arrow-right text-sm text-pink-500 animate-arrow-right"></i>
-            </h2>
-            <div class="h-px bg-white/10 flex-1 ml-4"></div>
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold font-mono">04</div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
+                <span>Featured Projects</span>
+                <i class="fas fa-arrow-right text-sm text-pink-500 animate-arrow-right"></i>
+              </h2>
+            </div>
+            <a href="https://github.com/prem1382" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+              <span>View all on GitHub</span>
+              <i class="fas fa-arrow-right text-xs animate-arrow-right"></i>
+            </a>
           </div>
 
           <div class="grid md:grid-cols-2 gap-8">
             
-            <div class="cyber-card p-8 rounded-3xl flex flex-col justify-between group">
+            <!-- Project 1: Hairlone 2.0 with Direct Links -->
+            <div class="cyber-card p-8 rounded-3xl flex flex-col justify-between group border-pink-500/20 hover:border-pink-500/60">
               <div>
+                <!-- Header with clickable title -->
                 <div class="flex justify-between items-start mb-3">
-                  <h3 class="text-2xl font-bold text-white group-hover:text-pink-400 transition-colors flex items-center gap-2">
+                  <a href="https://github.com/prem1382/Hairlone" target="_blank" rel="noopener noreferrer" class="text-2xl font-bold text-white group-hover:text-pink-400 transition-colors flex items-center gap-2" title="Open Hairlone Project">
                     <span>Hairlone 2.0</span>
-                    <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 animate-arrow-right transition-opacity"></i>
-                  </h3>
-                  <span class="text-xs px-3 py-1 bg-pink-500/10 text-pink-400 border border-pink-500/30 rounded-full font-semibold">OpenCV / AI</span>
+                    <i class="fas fa-arrow-up-right text-sm opacity-60 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all text-pink-400"></i>
+                  </a>
+                  <span class="text-xs px-3 py-1 bg-pink-500/10 text-pink-400 border border-pink-500/30 rounded-full font-semibold font-mono">OpenCV / AI</span>
                 </div>
-                <p class="text-sm text-pink-400 mb-6 font-medium">Face Shape & Hairstyle Detection System</p>
+
+                <p class="text-sm text-pink-400 mb-5 font-medium">Real-Time Face Shape & Hairstyle Detection System</p>
+                
                 <ul class="text-slate-300 text-sm space-y-2.5 font-light mb-6">
-                  <li>• Engineered Python OpenCV biometric vision pipeline to classify 7 face shapes.</li>
-                  <li>• Built virtual try-on mirror overlaying hairstyle vectors onto webcam photos.</li>
-                  <li>• Integrated partner salon scheduler and AI conversational stylist agent.</li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-xs text-pink-400 mt-1"></i>
+                    <span>Engineered Python OpenCV biometric vision pipeline to classify 7 distinct facial geometries in real time.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-xs text-pink-400 mt-1"></i>
+                    <span>Built interactive virtual try-on mirror overlaying hairstyle vectors onto live webcam feeds.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-xs text-pink-400 mt-1"></i>
+                    <span>Integrated partner salon booking scheduler and conversational AI stylist recommendation agent.</span>
+                  </li>
                 </ul>
               </div>
-              <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
-                <span class="text-xs px-2.5 py-1 bg-white/5 text-slate-300 rounded">Python</span>
-                <span class="text-xs px-2.5 py-1 bg-white/5 text-slate-300 rounded">OpenCV</span>
-                <span class="text-xs px-2.5 py-1 bg-white/5 text-slate-300 rounded">SQL</span>
+
+              <div>
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 mb-5">
+                  <span class="text-xs px-2.5 py-1 bg-white/5 text-pink-300 border border-pink-500/20 rounded font-mono">Python</span>
+                  <span class="text-xs px-2.5 py-1 bg-white/5 text-pink-300 border border-pink-500/20 rounded font-mono">OpenCV</span>
+                  <span class="text-xs px-2.5 py-1 bg-white/5 text-pink-300 border border-pink-500/20 rounded font-mono">Biometrics</span>
+                  <span class="text-xs px-2.5 py-1 bg-white/5 text-pink-300 border border-pink-500/20 rounded font-mono">SQL</span>
+                </div>
+
+                <!-- Direct Action Buttons: Open Project & Source Code -->
+                <div class="flex flex-wrap gap-3">
+                  <a href="https://github.com/prem1382/Hairlone" target="_blank" rel="noopener noreferrer" class="shiny-btn flex-1 min-w-[140px] px-5 py-2.5 bg-gradient-to-r from-pink-600 to-purple-600 text-white text-xs sm:text-sm font-bold rounded-xl shadow-lg shadow-pink-500/25 hover:scale-105 transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-external-link-alt text-xs"></i>
+                    <span>Open Project Link</span>
+                  </a>
+                  <a href="https://github.com/prem1382/Hairlone" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-white/5 border border-white/15 text-slate-200 text-xs sm:text-sm font-semibold rounded-xl hover:border-pink-400 hover:text-white transition-all flex items-center gap-2">
+                    <i class="fab fa-github text-sm"></i>
+                    <span>Source Code</span>
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div class="cyber-card p-8 rounded-3xl flex flex-col justify-between group">
+            <!-- Project 2: Auto Guard with Direct Links -->
+            <div class="cyber-card p-8 rounded-3xl flex flex-col justify-between group border-purple-500/20 hover:border-purple-500/60">
               <div>
+                <!-- Header with clickable title -->
                 <div class="flex justify-between items-start mb-3">
-                  <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors flex items-center gap-2">
+                  <a href="https://github.com/prem1382/AutoGuard" target="_blank" rel="noopener noreferrer" class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors flex items-center gap-2" title="Open Auto Guard Project">
                     <span>Auto Guard</span>
-                    <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 animate-arrow-right transition-opacity"></i>
-                  </h3>
-                  <span class="text-xs px-3 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/30 rounded-full font-semibold">Gemini AI</span>
+                    <i class="fas fa-arrow-up-right text-sm opacity-60 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all text-purple-400"></i>
+                  </a>
+                  <span class="text-xs px-3 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/30 rounded-full font-semibold font-mono">Gemini AI</span>
                 </div>
-                <p class="text-sm text-pink-400 mb-6 font-medium">AI Car Damage Estimator</p>
+
+                <p class="text-sm text-purple-400 mb-5 font-medium">Multimodal AI Vehicle Damage & Repair Cost Estimator</p>
+                
                 <ul class="text-slate-300 text-sm space-y-2.5 font-light mb-6">
-                  <li>• Full-stack web application built with React 19, Node.js, and Gemini AI API.</li>
-                  <li>• Multimodal vision processing generating itemized repair cost estimates in INR.</li>
-                  <li>• Automated downloadable PDF report generation for insurance claims.</li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-xs text-purple-400 mt-1"></i>
+                    <span>Engineered full-stack application built with React 19, Node.js, and Google Gemini Multimodal Vision API.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-xs text-purple-400 mt-1"></i>
+                    <span>Analyzes uploaded vehicle crash imagery to generate itemized component repair and replacement costs in INR.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle text-xs text-purple-400 mt-1"></i>
+                    <span>Automated downloadable, structured PDF inspection reports optimized for insurance claim processing.</span>
+                  </li>
                 </ul>
               </div>
-              <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
-                <span class="text-xs px-2.5 py-1 bg-white/5 text-slate-300 rounded">React 19</span>
-                <span class="text-xs px-2.5 py-1 bg-white/5 text-slate-300 rounded">Node.js</span>
-                <span class="text-xs px-2.5 py-1 bg-white/5 text-slate-300 rounded">Gemini AI</span>
+
+              <div>
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 mb-5">
+                  <span class="text-xs px-2.5 py-1 bg-white/5 text-purple-300 border border-purple-500/20 rounded font-mono">React 19</span>
+                  <span class="text-xs px-2.5 py-1 bg-white/5 text-purple-300 border border-purple-500/20 rounded font-mono">Node.js</span>
+                  <span class="text-xs px-2.5 py-1 bg-white/5 text-purple-300 border border-purple-500/20 rounded font-mono">Gemini AI</span>
+                  <span class="text-xs px-2.5 py-1 bg-white/5 text-purple-300 border border-purple-500/20 rounded font-mono">PDF Gen</span>
+                </div>
+
+                <!-- Direct Action Buttons: Open Project & Source Code -->
+                <div class="flex flex-wrap gap-3">
+                  <a href="https://github.com/prem1382/AutoGuard" target="_blank" rel="noopener noreferrer" class="shiny-btn flex-1 min-w-[140px] px-5 py-2.5 bg-gradient-to-r from-purple-600 to-cyan-600 text-white text-xs sm:text-sm font-bold rounded-xl shadow-lg shadow-purple-500/25 hover:scale-105 transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-external-link-alt text-xs"></i>
+                    <span>Open Project Link</span>
+                  </a>
+                  <a href="https://github.com/prem1382/AutoGuard" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-white/5 border border-white/15 text-slate-200 text-xs sm:text-sm font-semibold rounded-xl hover:border-purple-400 hover:text-white transition-all flex items-center gap-2">
+                    <i class="fab fa-github text-sm"></i>
+                    <span>Source Code</span>
+                  </a>
+                </div>
               </div>
             </div>
 
           </div>
         </section>
 
-        <!-- Experience & Contact Section -->
+        <!-- 05: Dedicated LeetCode Problem-Solving Showcase Section -->
+        <section id="leetcode" class="mb-24 reveal">
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold font-mono">05</div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
+                <span>LeetCode & Problem Solving</span>
+                <i class="fas fa-arrow-right text-sm text-amber-500 animate-arrow-right"></i>
+              </h2>
+            </div>
+            
+            <a href="https://leetcode.com/u/prem-20/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold hover:bg-amber-500/20 transition-all">
+              <span>@prem-20</span>
+              <i class="fas fa-external-link-alt text-[10px]"></i>
+            </a>
+          </div>
+
+          <!-- LeetCode Interactive Stats Dashboard Card -->
+          <div class="cyber-card p-8 rounded-3xl border-amber-500/30 relative overflow-hidden">
+            
+            <!-- Ambient Glow in Card -->
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              
+              <!-- Left Col: LeetCode Brand & Overall Stats -->
+              <div class="lg:col-span-5 space-y-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/40 flex items-center justify-center text-amber-400 text-2xl shadow-lg">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-white">LeetCode Profile</h3>
+                    <p class="text-xs text-amber-400 font-mono">Handle: prem-20</p>
+                  </div>
+                </div>
+
+                <p class="text-slate-300 text-sm font-light leading-relaxed">
+                  Dedicated to daily algorithmic problem solving, time-space complexity optimization, and mastering core Data Structures & Algorithms.
+                </p>
+
+                <!-- Core Topics Mastered Badges -->
+                <div class="space-y-2">
+                  <span class="text-xs uppercase tracking-wider text-slate-400 font-mono">Specialized Algorithms:</span>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-2.5 py-1 text-xs bg-white/5 text-amber-300 border border-white/10 rounded-lg">Dynamic Programming</span>
+                    <span class="px-2.5 py-1 text-xs bg-white/5 text-amber-300 border border-white/10 rounded-lg">Trees & Graphs</span>
+                    <span class="px-2.5 py-1 text-xs bg-white/5 text-amber-300 border border-white/10 rounded-lg">Binary Search</span>
+                    <span class="px-2.5 py-1 text-xs bg-white/5 text-amber-300 border border-white/10 rounded-lg">Two Pointers</span>
+                    <span class="px-2.5 py-1 text-xs bg-white/5 text-amber-300 border border-white/10 rounded-lg">Sliding Window</span>
+                  </div>
+                </div>
+
+                <!-- Direct LeetCode CTA Button -->
+                <div class="pt-2">
+                  <a href="https://leetcode.com/u/prem-20/" target="_blank" rel="noopener noreferrer" class="shiny-btn inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-slate-950 font-bold rounded-xl shadow-lg shadow-amber-500/20 hover:scale-105 active:scale-95 transition-all text-sm">
+                    <i class="fas fa-fire text-base text-slate-950"></i>
+                    <span>Visit LeetCode Profile</span>
+                    <i class="fas fa-arrow-right animate-arrow-right text-xs"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Col: Visual Metrics & Breakdown Progress Bars -->
+              <div class="lg:col-span-7 bg-[#0b0718]/80 border border-white/10 p-6 rounded-2xl space-y-5">
+                
+                <!-- Quick Summary Numbers -->
+                <div class="grid grid-cols-3 gap-3 text-center pb-4 border-b border-white/10">
+                  <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+                    <div class="text-2xl font-black text-amber-400 font-mono">Active</div>
+                    <div class="text-xs text-slate-400">Problem Solver</div>
+                  </div>
+                  <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+                    <div class="text-2xl font-black text-emerald-400 font-mono">Java & Py</div>
+                    <div class="text-xs text-slate-400">Languages</div>
+                  </div>
+                  <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+                    <div class="text-2xl font-black text-cyan-400 font-mono">Optimal</div>
+                    <div class="text-xs text-slate-400">Time & Space</div>
+                  </div>
+                </div>
+
+                <!-- Difficulty Progress Bars -->
+                <div class="space-y-4">
+                  <!-- Easy -->
+                  <div class="space-y-1.5">
+                    <div class="flex justify-between text-xs font-semibold">
+                      <span class="lc-badge-easy px-2 py-0.5 rounded font-mono">Easy Problems</span>
+                      <span class="text-slate-300 font-mono">Fundamentals & Patterns</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-white/5 rounded-full overflow-hidden p-0.5 border border-white/5">
+                      <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-1000" style="width: 85%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Medium -->
+                  <div class="space-y-1.5">
+                    <div class="flex justify-between text-xs font-semibold">
+                      <span class="lc-badge-medium px-2 py-0.5 rounded font-mono">Medium Problems</span>
+                      <span class="text-slate-300 font-mono">Core Algorithmic Logic</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-white/5 rounded-full overflow-hidden p-0.5 border border-white/5">
+                      <div class="h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full transition-all duration-1000" style="width: 72%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Hard -->
+                  <div class="space-y-1.5">
+                    <div class="flex justify-between text-xs font-semibold">
+                      <span class="lc-badge-hard px-2 py-0.5 rounded font-mono">Hard Problems</span>
+                      <span class="text-slate-300 font-mono">Complex Graph & DP</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-white/5 rounded-full overflow-hidden p-0.5 border border-white/5">
+                      <div class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full transition-all duration-1000" style="width: 45%;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Footer tip -->
+                <div class="pt-2 text-right">
+                  <a href="https://leetcode.com/u/prem-20/" target="_blank" rel="noopener noreferrer" class="text-xs text-amber-400 hover:underline inline-flex items-center gap-1 font-mono">
+                    <span>Explore full problem breakdown at leetcode.com/u/prem-20</span>
+                    <i class="fas fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 06: Verified Certificates & Credentials Section with Direct LinkedIn Links -->
+        <section id="certificates" class="mb-24 reveal">
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono">06</div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
+                <span>Certifications & Credentials</span>
+                <i class="fas fa-arrow-right text-sm text-cyan-500 animate-arrow-right"></i>
+              </h2>
+            </div>
+
+            <a href="https://www.linkedin.com/in/prem-kumar-9a1487378/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+              <i class="fab fa-linkedin"></i>
+              <span>Verify on LinkedIn</span>
+              <i class="fas fa-external-link-alt text-[10px]"></i>
+            </a>
+          </div>
+
+          <!-- Certificate Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Certificate 1: Full-Stack Web Development -->
+            <div class="cyber-card p-6 rounded-2xl flex flex-col justify-between group border-cyan-500/20 hover:border-cyan-500/60">
+              <div>
+                <div class="flex justify-between items-start mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg">
+                    <i class="fas fa-layer-group"></i>
+                  </div>
+                  <span class="text-[10px] px-2.5 py-1 bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 rounded-full font-mono font-semibold">VERIFIED</span>
+                </div>
+
+                <h3 class="font-bold text-white text-lg mb-1 group-hover:text-cyan-400 transition-colors">Full-Stack Web Development</h3>
+                <p class="text-xs text-cyan-300 font-medium mb-3">Enterprise Web Architecture & React/Node</p>
+                <p class="text-slate-300 text-xs font-light leading-relaxed mb-4">
+                  Comprehensive validation in designing responsive frontend architectures, RESTful API endpoints, and database connectivity.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/10 mb-4 text-[11px] text-slate-400">
+                  <span class="px-2 py-0.5 bg-white/5 rounded">React 19</span>
+                  <span class="px-2 py-0.5 bg-white/5 rounded">Node.js</span>
+                  <span class="px-2 py-0.5 bg-white/5 rounded">REST APIs</span>
+                </div>
+
+                <a href="https://www.linkedin.com/in/prem-kumar-9a1487378/" target="_blank" rel="noopener noreferrer" class="w-full py-2 bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500/25 hover:text-white rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-2">
+                  <i class="fab fa-linkedin text-sm"></i>
+                  <span>View on LinkedIn</span>
+                  <i class="fas fa-external-link-alt text-[9px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Certificate 2: Java Enterprise & Data Structures -->
+            <div class="cyber-card p-6 rounded-2xl flex flex-col justify-between group border-purple-500/20 hover:border-purple-500/60">
+              <div>
+                <div class="flex justify-between items-start mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg">
+                    <i class="fab fa-java"></i>
+                  </div>
+                  <span class="text-[10px] px-2.5 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/30 rounded-full font-mono font-semibold">VERIFIED</span>
+                </div>
+
+                <h3 class="font-bold text-white text-lg mb-1 group-hover:text-purple-400 transition-colors">Java & Data Structures (DSA)</h3>
+                <p class="text-xs text-purple-300 font-medium mb-3">OOP & Algorithmic Problem Solving</p>
+                <p class="text-slate-300 text-xs font-light leading-relaxed mb-4">
+                  Mastery in Java object-oriented principles, memory management, multithreading, and algorithmic complexity.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/10 mb-4 text-[11px] text-slate-400">
+                  <span class="px-2 py-0.5 bg-white/5 rounded">Java Core</span>
+                  <span class="px-2 py-0.5 bg-white/5 rounded">OOP</span>
+                  <span class="px-2 py-0.5 bg-white/5 rounded">Algorithms</span>
+                </div>
+
+                <a href="https://www.linkedin.com/in/prem-kumar-9a1487378/" target="_blank" rel="noopener noreferrer" class="w-full py-2 bg-purple-500/15 border border-purple-500/40 text-purple-300 hover:bg-purple-500/25 hover:text-white rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-2">
+                  <i class="fab fa-linkedin text-sm"></i>
+                  <span>View on LinkedIn</span>
+                  <i class="fas fa-external-link-alt text-[9px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Certificate 3: Computer Vision & Applied Machine Learning -->
+            <div class="cyber-card p-6 rounded-2xl flex flex-col justify-between group border-pink-500/20 hover:border-pink-500/60">
+              <div>
+                <div class="flex justify-between items-start mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center text-pink-400 text-lg">
+                    <i class="fas fa-brain"></i>
+                  </div>
+                  <span class="text-[10px] px-2.5 py-1 bg-pink-500/10 text-pink-400 border border-pink-500/30 rounded-full font-mono font-semibold">VERIFIED</span>
+                </div>
+
+                <h3 class="font-bold text-white text-lg mb-1 group-hover:text-pink-400 transition-colors">Applied Machine Learning & OpenCV</h3>
+                <p class="text-xs text-pink-300 font-medium mb-3">Computer Vision & AI Model Deployment</p>
+                <p class="text-slate-300 text-xs font-light leading-relaxed mb-4">
+                  Practical proficiency in image processing, facial landmark detection, model inference, and multimodal Gemini AI pipelines.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 pt-3 border-t border-white/10 mb-4 text-[11px] text-slate-400">
+                  <span class="px-2 py-0.5 bg-white/5 rounded">OpenCV</span>
+                  <span class="px-2 py-0.5 bg-white/5 rounded">Python AI</span>
+                  <span class="px-2 py-0.5 bg-white/5 rounded">Gemini API</span>
+                </div>
+
+                <a href="https://www.linkedin.com/in/prem-kumar-9a1487378/" target="_blank" rel="noopener noreferrer" class="w-full py-2 bg-pink-500/15 border border-pink-500/40 text-pink-300 hover:bg-pink-500/25 hover:text-white rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-2">
+                  <i class="fab fa-linkedin text-sm"></i>
+                  <span>View on LinkedIn</span>
+                  <i class="fas fa-external-link-alt text-[9px]"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 07: Work Experience Section -->
         <section id="experience" class="mb-24 reveal">
           <div class="flex items-center gap-3 mb-8">
-            <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold">05</div>
-            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center font-bold font-mono">07</div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
               <span>Work Experience</span>
               <i class="fas fa-arrow-right text-sm text-pink-500 animate-arrow-right"></i>
             </h2>
@@ -613,35 +1119,61 @@
                   <span>Full Stack Development Intern</span>
                   <i class="fas fa-long-arrow-alt-right text-pink-400 animate-arrow-right"></i>
                 </h3>
-                <p class="text-pink-400">CAZ Brain Corporate Ltd — Bangalore, India</p>
+                <p class="text-pink-400 font-medium">CAZ Brain Corporate Ltd — Bangalore, India</p>
               </div>
-              <span class="text-xs font-semibold px-3 py-1 bg-white/5 text-slate-300 rounded-full w-fit">June 2025 – August 2025</span>
+              <span class="text-xs font-semibold px-3 py-1 bg-white/5 text-slate-300 border border-white/10 rounded-full w-fit font-mono">June 2025 – August 2025</span>
             </div>
             <ul class="space-y-3 text-slate-300 text-sm font-light">
-              <li>• Built Student Management System with Java, MySQL, HTML, CSS, JS (+35% processing efficiency).</li>
-              <li>• Constructed adaptive UI components linked to Java DB services (-18 data entry errors/week).</li>
-              <li>• Optimized SQL queries to reduce response latency across CRUD operations.</li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check-circle text-xs text-pink-400 mt-1"></i>
+                <span>Built Enterprise Student Management System utilizing Java, MySQL, HTML, CSS, and JS (+35% processing efficiency improvement).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check-circle text-xs text-pink-400 mt-1"></i>
+                <span>Constructed adaptive UI components linked to robust Java database microservices (-18 data entry errors/week).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check-circle text-xs text-pink-400 mt-1"></i>
+                <span>Optimized relational SQL queries and indexing strategies to reduce response latency across enterprise CRUD transactions.</span>
+              </li>
             </ul>
           </div>
         </section>
 
-        <!-- Contact Call-to-Action Section -->
-        <section id="contact" class="text-center py-16 reveal relative">
-          <div class="cyber-card p-12 rounded-[2.5rem] relative overflow-hidden">
+        <!-- 08: Contact & Hire Section -->
+        <section id="contact" class="text-center py-12 reveal relative">
+          <div class="cyber-card p-10 sm:p-14 rounded-[2.5rem] relative overflow-hidden border-pink-500/30">
+            <div class="absolute -top-24 -left-24 w-72 h-72 bg-pink-600/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-400 text-xs font-semibold font-mono mb-4">
+              <span>GET IN TOUCH</span>
+            </div>
+
             <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 flex items-center justify-center gap-3">
               <span>Let's Connect & Build</span>
               <i class="fas fa-paper-plane text-2xl text-pink-500 animate-arrow-up"></i>
             </h2>
-            <p class="text-slate-300 max-w-lg mx-auto mb-8 font-light">Available for software engineering roles and high-impact web & AI projects.</p>
+            
+            <p class="text-slate-300 max-w-xl mx-auto mb-8 font-light text-base">
+              Currently available for software engineering roles, full-stack web engineering, and high-impact AI/OpenCV projects.
+            </p>
+
             <div class="flex flex-wrap justify-center gap-4">
-              <a href="mailto:Prempremkumar50574@gmail.com" class="shiny-btn px-8 py-3.5 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold rounded-full shadow-lg shadow-pink-500/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
-                <span>Send Email</span>
+              <a href="mailto:Prempremkumar50574@gmail.com" class="shiny-btn px-8 py-3.5 bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white font-bold rounded-full shadow-lg shadow-pink-500/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 text-sm">
+                <span>Send Email Directly</span>
                 <i class="fas fa-arrow-right animate-arrow-right text-xs"></i>
               </a>
-              <button onclick="copyEmail()" class="px-6 py-3.5 border border-white/10 rounded-full text-slate-300 font-semibold hover:border-pink-500/50 transition-all flex items-center gap-2">
+
+              <button onclick="copyEmail()" class="px-6 py-3.5 border border-white/15 bg-white/5 rounded-full text-slate-300 font-semibold hover:border-pink-500/50 hover:text-white transition-all flex items-center gap-2 text-sm">
                 <span id="copy-text">Copy Email Address</span>
                 <i class="fas fa-copy text-xs text-pink-400"></i>
               </button>
+
+              <a href="https://www.linkedin.com/in/prem-kumar-9a1487378/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 border border-blue-500/30 bg-blue-500/10 rounded-full text-blue-300 font-semibold hover:border-blue-400 hover:bg-blue-500/20 transition-all flex items-center gap-2 text-sm">
+                <i class="fab fa-linkedin"></i>
+                <span>Connect on LinkedIn</span>
+              </a>
             </div>
           </div>
         </section>
@@ -650,18 +1182,25 @@
     </div>
 
     <!-- Footer -->
-    <footer class="px-12 py-6 border-t border-white/5 text-center text-slate-500 text-xs flex justify-between items-center">
-      <p>&copy; 2026 Prem Kumar M. Cyberpunk Developer Portfolio.</p>
-      <a href="#home" class="flex items-center gap-1 hover:text-pink-400 transition-colors">
-        <span>Back to top</span>
-        <i class="fas fa-arrow-up animate-arrow-up text-pink-500 text-xs"></i>
-      </a>
+    <footer class="px-8 sm:px-12 py-6 border-t border-white/5 text-center text-slate-400 text-xs flex flex-col sm:flex-row justify-between items-center gap-4 bg-[#080512]">
+      <p>&copy; 2026 Prem Kumar M • Cyberpunk Developer Portfolio. All rights reserved.</p>
+      
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/prem1382" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/prem-kumar-9a1487378/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">LinkedIn</a>
+        <a href="https://leetcode.com/u/prem-20/" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors">LeetCode</a>
+        <a href="#home" class="flex items-center gap-1 text-pink-400 hover:text-pink-300 transition-colors font-medium">
+          <span>Back to top</span>
+          <i class="fas fa-arrow-up animate-arrow-up text-xs"></i>
+        </a>
+      </div>
     </footer>
 
   </div>
 
+  <!-- Interactive JavaScript -->
   <script>
-    // Scroll Progress
+    // 1. Scroll Progress Bar
     window.onscroll = function() {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -669,22 +1208,197 @@
       document.getElementById("scroll-progress").style.width = scrolled + "%";
     };
 
-    // Scroll Reveal Observer
+    // 2. Scroll Reveal Observer
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('active');
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
 
-    // Copy Email
+    // 3. Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+    }
+
+    // 4. Copy Email
     function copyEmail() {
       navigator.clipboard.writeText("Prempremkumar50574@gmail.com");
       const btn = document.getElementById("copy-text");
-      btn.innerText = "Copied to Clipboard!";
+      btn.innerText = "Copied to Clipboard! ✓";
       setTimeout(() => btn.innerText = "Copy Email Address", 2500);
     }
+
+    // 5. Dynamic Cyber Typewriter Effect
+    const roles = [
+      "Full-Stack Apps",
+      "AI & OpenCV Models",
+      "LeetCode DSA Solutions",
+      "Scalable Systems"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById("typewriter-text");
+
+    function typeEffect() {
+      const currentRole = roles[roleIndex];
+      
+      if (isDeleting) {
+        typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 45 : 90;
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        typeSpeed = 2200; // Pause at full word
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 400; // Pause before new word
+      }
+
+      setTimeout(typeEffect, typeSpeed);
+    }
+    if (typewriterElement) {
+      setTimeout(typeEffect, 600);
+    }
+
+    // 6. Interactive 3D Perspective Tilt on Avatar Frame
+    const tiltCard = document.getElementById('avatar-tilt-card');
+    if (tiltCard) {
+      const container = tiltCard.parentElement;
+      container.addEventListener('mousemove', (e) => {
+        const rect = tiltCard.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        const rotateX = (-y / (rect.height / 2)) * 14;
+        const rotateY = (x / (rect.width / 2)) * 14;
+        
+        tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+    }
+
+    // 7. Interactive Cyber Particle Canvas Network
+    (function initParticleCanvas() {
+      const canvas = document.getElementById('hero-particles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+      const particleCount = 42;
+      let mouse = { x: null, y: null, radius: 120 };
+
+      function resize() {
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      canvas.parentElement.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      canvas.parentElement.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.9;
+          this.vy = (Math.random() - 0.5) * 0.9;
+          this.size = Math.random() * 2 + 1.2;
+          this.color = Math.random() > 0.5 ? '#ec4899' : (Math.random() > 0.5 ? '#8b5cf6' : '#06b6d4');
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+
+          // Mouse Gravitational Interaction
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              this.x -= (dx / dist) * force * 3;
+              this.y -= (dy / dist) * force * 3;
+            }
+          }
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = this.color;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw connecting constellation lines
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(168, 85, 247, ${0.25 * (1 - dist / 110)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
   </script>
 
 </body>
