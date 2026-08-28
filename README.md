@@ -1,4 +1,4 @@
-# Prem Kumar M - Cyberpunk Developer Portfolio
+# Prem Kumar M - FullStack Developer Portfolio
 
 ## Overview
 This is a single-page developer portfolio website built for Prem Kumar M (Computer Science Engineer).
