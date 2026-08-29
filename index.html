@@ -572,7 +572,7 @@
               <p class="text-slate-300 text-base sm:text-lg max-w-xl font-light leading-relaxed">
                 Computer Science Engineer from <strong class="text-white font-semibold">VSB college of Engineering Technical Campus</strong> specializing as an end-to-end <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-cyan-400 font-semibold">Full Stack Developer</span>, building scalable web architectures, real-time <span class="text-pink-400 font-medium">OpenCV AI models</span>, and solving algorithms on <span class="text-amber-400 font-medium">LeetCode</span>.
               </p>
-
+<div id="profile-time" class="text-slate-300 text-sm mt-2"></div>
               <!-- Impact Quick Stats Strip -->
               <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg">
                 <div class="cyber-card p-3.5 rounded-xl text-center border-pink-500/25 group hover:border-pink-500/60">
@@ -1838,6 +1838,19 @@
       .to(logo, { scale: 0, rotation: 180, opacity: 0, duration: 0.8, ease: 'power2.in' }, 'reveal')
       .fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 }, 'reveal+=0.4');
   }
+</script>
+<script>
+  // Display current time in profile section
+  function updateProfileTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString([], {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
+    const el = document.getElementById('profile-time');
+    if (el) {
+      el.textContent = `Current time: ${timeString}`;
+    }
+  }
+  updateProfileTime();
+  setInterval(updateProfileTime, 1000);
 </script>
 </body>
 </html>
