@@ -9,6 +9,7 @@
   <!-- Tailwind CSS & FontAwesome -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   
   <!-- Google Fonts: Outfit & JetBrains Mono for Futuristic Cyberpunk Aesthetic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1762,6 +1763,81 @@
     setTimeout(() => { loaderEl.remove(); }, 500);
     sessionStorage.setItem('introSeen', 'true');
   });
+</script>
+<script>
+  // Cinematic intro using GSAP
+  if (!sessionStorage.getItem('cinematicIntroSeen')) {
+    const overlay = document.createElement('div');
+    overlay.id = 'cinematic-intro';
+    overlay.className = 'fixed inset-0 bg-black flex items-center justify-center overflow-hidden z-50';
+    document.body.appendChild(overlay);
+
+    const logo = document.createElement('img');
+    logo.id = 'python-logo';
+    logo.src = 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg';
+    logo.alt = 'Python Logo';
+    logo.className = 'w-24 h-24 opacity-0 pointer-events-none';
+    overlay.appendChild(logo);
+
+    const audio = document.createElement('audio');
+    audio.id = 'glitch-sound';
+    audio.src = 'https://assets.mixkit.co/sfx/preview/mixkit-electro-synth-glitch-2150.mp3';
+    overlay.appendChild(audio);
+
+    // generate code snippets
+    const snippets = [
+      "function render() { return <App/>; }",
+      "const colors = ['#ff00ff', '#00ffff', '#ff8800'];",
+      "body { margin: 0; background: #111; }",
+      "let data = await fetch('/api');",
+      "def hello():\n    print('Hello')",
+      "class Matrix { constructor() {} }",
+    ];
+    const chaosElems = [];
+    for (let i = 0; i < 30; i++) {
+      const el = document.createElement('div');
+      el.textContent = snippets[Math.floor(Math.random() * snippets.length)];
+      el.className = 'absolute text-xs text-green-400 font-mono opacity-0 select-none';
+      const startX = Math.random() * window.innerWidth * (Math.random() > 0.5 ? -1 : 2);
+      const startY = Math.random() * window.innerHeight * (Math.random() > 0.5 ? -1 : 2);
+      el.style.left = `${startX}px`;
+      el.style.top = `${startY}px`;
+      overlay.appendChild(el);
+      chaosElems.push(el);
+    }
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        sessionStorage.setItem('cinematicIntroSeen', 'true');
+        overlay.remove();
+      },
+    });
+
+    // 0‑2 s chaos
+    tl.addLabel('chaos')
+      .to(chaosElems, { opacity: 1, duration: 0.1, stagger: { each: 0.03, from: 'random' } })
+      .to(chaosElems, {
+        x: () => Math.random() * 200 - 100,
+        y: () => Math.random() * 200 - 100,
+        rotation: () => Math.random() * 360,
+        scale: 0.5,
+        duration: 1.2,
+        ease: 'none',
+        stagger: { each: 0.05, from: 'random' },
+      }, 'chaos+=0.1')
+      .to(chaosElems, { opacity: 0, duration: 0.5 }, 'chaos+=1.5')
+      .add(() => { audio.play(); }, 'chaos');
+
+    // 2‑3 s Python logo
+    tl.addLabel('python')
+      .fromTo(logo, { scale: 0, opacity: 0 }, { scale: 4, opacity: 1, duration: 0.9, ease: 'power3.out' }, 'python')
+      .to(chaosElems, { opacity: 0, duration: 0.2 }, 'python');
+
+    // 3‑4 s reveal
+    tl.addLabel('reveal')
+      .to(logo, { scale: 0, rotation: 180, opacity: 0, duration: 0.8, ease: 'power2.in' }, 'reveal')
+      .fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 }, 'reveal+=0.4');
+  }
 </script>
 </body>
 </html>
