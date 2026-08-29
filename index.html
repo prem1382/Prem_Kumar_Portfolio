@@ -358,9 +358,51 @@
       background-size: 200% auto;
       animation: gradient-shift 5s ease infinite;
     }
-  </style>
+  /* Intro Loader Styles */
+#intro-loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: #0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+  z-index: 9999;
+  overflow: hidden;
+}
+#intro-loader pre {
+  max-width: 90%;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+#skip-intro {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 1s steps(2) infinite;
+}
+</style>
 </head>
 <body class="bg-gradient-to-br from-[#060310] via-[#100926] to-[#0a051c] min-h-screen p-2 sm:p-5 lg:p-7 font-sans antialiased text-slate-100 selection:bg-pink-500 selection:text-white relative overflow-x-hidden">
+  <!-- Intro Loader Overlay -->
+  <div id="intro-loader">
+    <pre id="code-output"></pre>
+    <button id="skip-intro">Skip Intro</button>
+  </div>
 
   <!-- Ambient Cursor Glow Spotlight -->
   <div id="cursor-glow"></div>
@@ -1667,5 +1709,59 @@
     })();
   </script>
 
+<script>
+  // Fast coding intro loader
+  const CODE_LINES = [
+    "import React from 'react';",
+    "import { Canvas } from '@react-three/fiber';",
+    "function App() {",
+    "  return (",
+    "    <Canvas>",
+    "      <ambientLight intensity={0.5} />",
+    "      <mesh rotation={[90,0,0]}>",
+    "        <boxGeometry args={[1,1,1]} />",
+    "        <meshStandardMaterial color='hotpink' />",
+    "      </mesh>",
+    "    </Canvas>",
+    "  );",
+    "}",
+    "export default App;",
+  ];
+  const outputEl = document.getElementById('code-output');
+  const loaderEl = document.getElementById('intro-loader');
+  const skipBtn = document.getElementById('skip-intro');
+  let lineIdx = 0;
+  function typeLine() {
+    if (lineIdx >= CODE_LINES.length) {
+      // finish animation
+      setTimeout(() => {
+        loaderEl.style.opacity = '0';
+        loaderEl.style.transition = 'opacity 0.8s';
+        setTimeout(() => { loaderEl.remove(); }, 800);
+        sessionStorage.setItem('introSeen', 'true');
+      }, 500);
+      return;
+    }
+    const line = CODE_LINES[lineIdx];
+    const span = document.createElement('span');
+    span.textContent = line;
+    outputEl.appendChild(span);
+    outputEl.appendChild(document.createElement('br'));
+    lineIdx++;
+    // fast typing: 30ms per line
+    setTimeout(typeLine, 30);
+  }
+  if (!sessionStorage.getItem('introSeen')) {
+    typeLine();
+  } else {
+    loaderEl.remove();
+  }
+  skipBtn.addEventListener('click', () => {
+    loaderEl.style.opacity = '0';
+    loaderEl.style.transition = 'opacity 0.5s';
+    setTimeout(() => { loaderEl.remove(); }, 500);
+    sessionStorage.setItem('introSeen', 'true');
+  });
+</script>
 </body>
 </html>
